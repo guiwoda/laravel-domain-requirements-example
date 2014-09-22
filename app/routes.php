@@ -14,3 +14,4 @@
 Route::get('/', 'App\Http\Controllers\HomeController@showWelcome');
 
 Route::get('posts/{id}', ['as' => 'post', 'uses' => 'App\Http\Controllers\PostsController@show']);
+Route::get('posts', ['as' => 'posts.search', 'uses' => 'App\Http\Controllers\PostsController@index']);

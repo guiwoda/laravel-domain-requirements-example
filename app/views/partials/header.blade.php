@@ -32,13 +32,13 @@
 
 					-->
 				</ul>
-				<!--
-				<form class="navbar-form navbar-left" role="search">
+				<form class="navbar-form navbar-left" role="search" action="{{ route('posts.search') }}">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
+						{{ Form::text('q', Input::get('q'), ['class' => "form-control", 'placeholder' => "Search posts..."]) }}
 					</div>
 					<button type="submit" class="btn btn-default">Submit</button>
 				</form>
+				<!--
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">Link</a></li>
 					<li class="dropdown">

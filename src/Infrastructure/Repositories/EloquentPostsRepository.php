@@ -2,6 +2,7 @@
 
 use Guiwoda\DomainRequirements\Example\Domain\Entities\Post;
 use Guiwoda\DomainRequirements\Example\Domain\Repositories\PostsRepository;
+use Illuminate\Support\Facades\Paginator;
 
 class EloquentPostsRepository implements PostsRepository {
 	protected $post;
@@ -26,5 +27,17 @@ class EloquentPostsRepository implements PostsRepository {
 		}
 
 		return $post->get();
+	}
+
+	public function search($string, $take = 10, $page = 1)
+	{
+		$post = clone $this->post;
+
+		Paginator::setCurrentPage($page);
+
+		return $post
+			->where(\DB::raw('LOWER(title)'), 'LIKE', \DB::raw("LOWER('%$string%')"))
+			->orWhere(\DB::raw('LOWER(message)'), 'LIKE', \DB::raw("LOWER('%$string%')"))
+			->paginate($take);
 	}
 }

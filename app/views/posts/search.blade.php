@@ -17,5 +17,5 @@
 	</div>
 </div>
 @endforeach
-<a href="{{ route('posts.search') }}">View all posts...</a>
+{{ $posts->links() }}
 @stop

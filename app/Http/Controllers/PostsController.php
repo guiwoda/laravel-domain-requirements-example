@@ -22,6 +22,13 @@ class PostsController extends Controller
 		$this->postsRepository = $postsRepository;
 	}
 
+	public function index()
+	{
+		return $this->viewFactory->make('posts.search', [
+			'posts' => $this->postsRepository->search(\Input::get('q', ''), 10, \Input::get('page', 1))
+		]);
+	}
+
 	public function show($id)
 	{
 		return $this->viewFactory->make('post', [
