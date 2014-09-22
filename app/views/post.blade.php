@@ -5,7 +5,7 @@
 @section('content')
 <h1>{{{ $post->title }}}</h1>
 <small>by {{{ $post->user->email }}}</small>
-<p>{{{ $post->message }}}</p>
+<p>{{ nl2br($post->message) }}</p>
 <h2 id="comments">Comments</h2>
 @if($post->comments->count() > 0)
 	@foreach($post->comments as $comment)
@@ -14,7 +14,7 @@
 			<h3 class="panel-title">{{{ $comment->user->email }}} <small>on {{ $comment->created_at->format('Y-m-d H:i') }}</small></h3>
 		</div>
 		<div class="panel-body">
-			{{{ $comment->message }}}
+			{{ nl2br($comment->message) }}
 		</div>
 	</div>
 	@endforeach

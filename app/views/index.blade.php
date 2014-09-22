@@ -13,7 +13,7 @@
 		</h3>
 	</div>
 	<div class="panel-body">
-		<p>{{{ $post->message }}}</p>
+		<p>{{ nl2br(Str::words($post->message, 100)) }}</p>
 	</div>
 </div>
 @endforeach

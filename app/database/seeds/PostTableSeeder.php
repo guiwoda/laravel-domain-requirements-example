@@ -17,7 +17,7 @@ class PostTableSeeder extends FakerSeeder {
 					[
 						'user_id' => $user->id,
 						'title'   => $this->faker->sentence(),
-						'message' => implode(PHP_EOL, $this->faker->sentences(rand(2, 5)))
+						'message' => implode(PHP_EOL, $this->faker->paragraphs(rand(2, 5)))
 					]
 				);
 			}
