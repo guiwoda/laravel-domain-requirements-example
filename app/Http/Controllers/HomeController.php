@@ -17,7 +17,7 @@ class HomeController extends Controller
 
 	public function showWelcome()
 	{
-		return $this->viewFactory->make('hello');
+		return $this->viewFactory->make('index');
 	}
 
 }
