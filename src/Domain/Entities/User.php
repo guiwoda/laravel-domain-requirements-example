@@ -24,4 +24,19 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	public function posts()
+	{
+		return $this->hasMany('Guiwoda\DomainRequirements\Example\Domain\Entities\Post');
+	}
+
+	/**
+	 * I really doubt we'll need to traverse this relation from here, but I'll leave it here
+	 * just to be straightforward.
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function comments()
+	{
+		return $this->hasMany('Guiwoda\DomainRequirements\Example\Domain\Entities\Comment');
+	}
 }
