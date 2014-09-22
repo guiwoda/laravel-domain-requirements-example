@@ -6,6 +6,9 @@
 <h1>{{{ $post->title }}}</h1>
 <small>by {{{ $post->user->email }}}</small>
 <p>{{ nl2br($post->message) }}</p>
+@foreach($post->tags as $tag)
+<a href="{{ route('tag', $tag->id) }}" class="badge alert-danger">{{ $tag->name }}</a>
+@endforeach
 <h2 id="comments">Comments</h2>
 @if($post->comments->count() > 0)
 	@foreach($post->comments as $comment)

@@ -15,6 +15,11 @@
 	<div class="panel-body">
 		<p>{{ nl2br(Str::words($post->message, 100)) }}</p>
 	</div>
+	<div class="panel-footer">
+		@foreach($post->tags as $tag)
+		<a href="{{ route('tag', $tag->id) }}" class="badge alert-danger">{{ $tag->name }}</a>
+		@endforeach
+	</div>
 </div>
 @endforeach
 {{ $posts->links() }}

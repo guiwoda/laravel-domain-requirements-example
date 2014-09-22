@@ -21,4 +21,9 @@ class Comment extends Eloquent
 	{
 		return $this->belongsTo('Guiwoda\DomainRequirements\Example\Domain\Entities\Post');
 	}
+
+	public function tags()
+	{
+		return $this->morphToMany('Guiwoda\DomainRequirements\Example\Domain\Entities\Tag', 'taggable');
+	}
 } 

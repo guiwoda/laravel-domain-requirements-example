@@ -15,4 +15,9 @@ class Post extends Eloquent
 	{
 		return $this->hasMany('Guiwoda\DomainRequirements\Example\Domain\Entities\Comment');
 	}
+
+	public function tags()
+	{
+		return $this->morphToMany('Guiwoda\DomainRequirements\Example\Domain\Entities\Tag', 'taggable');
+	}
 } 

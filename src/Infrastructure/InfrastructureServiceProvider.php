@@ -13,5 +13,6 @@ class InfrastructureServiceProvider extends ServiceProvider
 	{
 		$ns = 'Guiwoda\DomainRequirements\Example';
 		$this->app->bind("$ns\\Domain\\Repositories\\PostsRepository", "$ns\\Infrastructure\\Repositories\\EloquentPostsRepository", true);
+		$this->app->bind("$ns\\Domain\\Repositories\\TagsRepository", "$ns\\Infrastructure\\Repositories\\EloquentTagsRepository", true);
 	}
 }
