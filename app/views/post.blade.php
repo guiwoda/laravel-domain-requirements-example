@@ -6,7 +6,7 @@
 <h1>{{{ $post->title }}}</h1>
 <small>by {{{ $post->user->email }}}</small>
 <p>{{{ $post->message }}}</p>
-<h2>Comments</h2>
+<h2 id="comments">Comments</h2>
 @if($post->comments->count() > 0)
 	@foreach($post->comments as $comment)
 	<div class="panel panel-default">

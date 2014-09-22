@@ -13,7 +13,7 @@ class EloquentPostsRepository implements PostsRepository {
 
 	public function latest($amount = 10)
 	{
-		return $this->post->orderBy('created_at', 'desc')->take(10)->get();
+		return $this->post->with(['user', 'comments'])->orderBy('created_at', 'desc')->take(10)->get();
 	}
 
 	public function findBy(array $params)
