@@ -2,4 +2,6 @@
 
 interface PostsRepository {
 	public function latest($amount = 10);
+
+	public function findBy(array $params);
 } 

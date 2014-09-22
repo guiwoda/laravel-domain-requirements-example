@@ -15,4 +15,16 @@ class EloquentPostsRepository implements PostsRepository {
 	{
 		return $this->post->orderBy('created_at', 'desc')->take(10)->get();
 	}
+
+	public function findBy(array $params)
+	{
+		$post = clone $this->post;
+
+		foreach ($params as $column => $value)
+		{
+			$post = $post->where($column, '=', $value);
+		}
+
+		return $post->get();
+	}
 }
